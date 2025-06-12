@@ -44,12 +44,29 @@ klanten.forEach((element) => {
 });
 
 function betaaldeLijst(facturenData) {
-  klanten.forEach((element1) => {
-    if (facturenData[1].find() == true) {
+  facturenData.forEach((element1) => {
+    if (element1.betaald == true) {
       const txtBetaald = document.createElement("p");
-      txtBetaald.innerText = `Factuur #${facturenData[i].id}-${facturenData[i].bedrag}`;
-      txtBetaald.id = "";
+      txtBetaald.innerText = `Factuur #${element1.id}-${element1.bedrag}`;
+      txtBetaald.id = element1.id;
+      txtBetaald.classList.add("betaald");
       betaaldContainer.appendChild(txtBetaald);
     }
   });
 }
+function nietBetaaldeLijst(facturenData) {
+  facturenData.forEach((element1) => {
+    if (element1.betaald == false) {
+      const txtBetaald = document.createElement("p");
+      txtBetaald.innerText = `Factuur #${element1.id}-${element1.bedrag}`;
+      txtBetaald.id = element1.id;
+      txtBetaald.classList.add("niet-betaald");
+      betaaldContainer.appendChild(txtBetaald);
+    }
+  });
+}
+klantSelect.addEventListener("change", (arg) => {
+  console.log(betaaldContainer.value);
+  betaaldeLijst(facturenData[betaaldContainer.arg]);
+  nietBetaaldeLijst(facturenData[betaaldContainer.value]);
+});
