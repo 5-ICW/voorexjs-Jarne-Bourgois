@@ -67,6 +67,6 @@ function nietBetaaldeLijst(facturenData) {
 }
 klantSelect.addEventListener("change", (arg) => {
   console.log(betaaldContainer.value);
-  betaaldeLijst(facturenData[betaaldContainer.arg]);
+  betaaldeLijst(facturenData[betaaldContainer.value]);
   nietBetaaldeLijst(facturenData[betaaldContainer.value]);
 });
