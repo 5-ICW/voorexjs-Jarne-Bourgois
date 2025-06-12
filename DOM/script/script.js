@@ -35,3 +35,21 @@ const nietBetaaldContainer = document.getElementById("nietBetaaldContainer");
  * 4. De facturen kijrgen een kleur op basis van betaald / niet betaald (zie css)
  * 5. Klik je op een factuur-regel dan krijg je een popup met de prijs van de factuur
  */
+
+klanten.forEach((element) => {
+  const option = document.createElement("option");
+  option.innerText = element.naam;
+  option.id = element.klantID;
+  klantSelect.appendChild(option);
+});
+
+function betaaldeLijst(facturenData) {
+  klanten.forEach((element1) => {
+    if (facturenData[1].find() == true) {
+      const txtBetaald = document.createElement("p");
+      txtBetaald.innerText = `Factuur #${facturenData[i].id}-${facturenData[i].bedrag}`;
+      txtBetaald.id = "";
+      betaaldContainer.appendChild(txtBetaald);
+    }
+  });
+}

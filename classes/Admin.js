@@ -36,16 +36,34 @@ class Klant {
       );
     }
   }
+  printFacturen() {
+    console.log(` Facturen voor ${this.naam}  `);
+    console.log(
+      `${this.facturen.forEach((element) => {
+        console.log(`${element} `);
+      })}`
+    );
+    // console.log(this.facturen);
+    //     //Facturen voor Jan Jansen:
+    //  *      Factuur F2025001: €250.00 - Openstaand
+    //     *      Factuur F2025002: €120.00 - Betaald
+  }
 
   getOpenstaandeFacturen() {
     return this.facturen.filter((f) => !f.betaald);
   }
 
   getTotaalBedragOpenstaand() {
-    // bereken het totaal van de facturen die nog niet betaald zijn.
+    let TotaalBedrag = 0;
+    return this.facturen.forEach((element) => {
+      if (element.betaald != true) {
+        TotaalBedrag = TotaalBedrag + element.bedrag;
+        console.log(element.bedrag);
+        console.log(TotaalBedrag);
+        return TotaalBedrag;
+      }
+    });
   }
 }
 
-module.exports = {
-  Factuur,
-};
+module.exports = { Factuur, Klant };
